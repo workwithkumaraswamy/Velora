@@ -1,0 +1,15 @@
+{
+  "name": "velora-marketplace",
+  "version": "1.0.0",
+  "description": "VÉLORA - Premium Multi-Category Fashion Dropshipping Marketplace",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:all": "cd backend && npm run build && cd ../frontend && npm run build",
+    "test": "cd backend && npm test"
+  },
+  "keywords": ["velora", "fashion", "luxury", "dropshipping", "ecommerce"],
+  "author": "VÉLORA",
+  "license": "ISC"
+}
