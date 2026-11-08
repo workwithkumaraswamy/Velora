@@ -3,8 +3,6 @@ process.env.TEST_MODE = 'true';
 process.env.NODE_ENV = 'test';
 process.env.PORT = '5005';
 
-import { startServer } from '../src/server';
-
 const PORT = 5005;
 const BASE_URL = `http://127.0.0.1:${PORT}/api/v1`;
 
@@ -343,8 +341,15 @@ async function runTestSuite() {
 }
 
 // Start server and run tests
-startServer(PORT).then(() => {
+async function main() {
+  const { startServer } = await import('../src/server');
+  await startServer(PORT);
   setTimeout(() => {
     runTestSuite();
   }, 1000);
+}
+
+main().catch(err => {
+  console.error('Fatal test initialization error:', err);
+  process.exit(1);
 });
